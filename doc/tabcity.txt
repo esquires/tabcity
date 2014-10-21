@@ -1,0 +1,110 @@
+                             For Vim version 7.3.
+                       _        _          _ _                      ~
+                      | |_ __ _| |__   ___(_) |_ _   _              ~
+                      | __/ _` | '_ \ / __| | __| | | |             ~
+                      | || (_| | |_) | (__| | |_| |_| |             ~
+                       \__\__,_|_.__/ \___|_|\__|\__, |             ~
+                                                 |___/              ~
+
+                    Vim plugin to enhance tab functionality
+
+Author: Eric Squires
+====================================================================
+CONTENTS                                        *TabcityContents*
+
+1. Installation ............................... |TabcityInstall|
+2. Summary .................................... |TabcitySummary|
+3. Details .................................... |TabcityTabEnhancements|
+4. License .................................... |TabcityLicense|
+
+====================================================================
+1. Installation                                 *TabcityInstall*
+
+    If using Pathogen,
+
+        1) place tabcity directory in .vim/bundle
+        2) In vim, run ":Helptags"
+        3) Anytime you need help, just type ":h tabcity.txt"
+
+    If not using Pathogen,
+
+        1) place tabcity contents in .vim/
+        2) In vim, run ":helptags"
+        3) Anytime you need help, just type ":h tabcity.txt"
+
+    If you don't have a local leader set, put the following in your .vimrc
+
+        let maplocalleader = "\\"
+        let mapleader = "\<space>"
+
+====================================================================
+2. Summary                                  *TabcitySummary*
+
+|Tabnew| (also T) - open multiple tabs at a time
+|ctrl_]|          - open tag in new window
+|ctrl_h|          - same as gT
+|ctrl_l|          - same as gt
+|alt_h|           - move current tab one to the left
+|alt_l|           - move current tab one to the right
+|alt_w|           - maps to <c-w><c-w> to allow easy movement between windows
+
+====================================================================
+3. Details                                  *TabcityDetails*
+
+*Tabnew*
+
+        open multiple tabs with one command (:tabnew only allows 1 at
+        a time)
+
+        example:  :Tabnew *       opens alocalleader the files in the current
+        directory
+
+        (:T is equivalent to :Tabnew)
+
+|ctrl_]|
+
+        open tag in new tab.  This functions exactly the same as <ctrl_]>
+        except when the tag does not exist in the existing buffer.  In this
+        case, it will look through the existing tabs and open the appropriate
+        tab (if available) or open a new tab. Get back to your original
+        position with |leader_r| (or, if the tag was opened in the same
+        buffer, use <c-t>). Finding the previous position is multi-leveled. To
+        clear the previous position stack, use |leader_R|.  See also, <f5>.
+
+*leader_r*
+
+        helper function for <ctrl_]> to go back to the original location.
+        These functions use a stack, so the user can retrace their position
+        even after multiple uses of <ctrl_]>.
+
+*leader_R*
+
+        clear tag stack (see description for |leader_r|)
+
+*leader_ve*
+
+        open .vimrc in new tab for quick edits
+
+*leader_vs*
+
+        source .vimrc to incorporate changes into the current vim instance
+        (shorthand for :source $MYVIMRC<cr>)
+
+*ctrl_h* *ctrl_l*
+
+        mapping for moving to the left and right tab respectively.  (same as
+        gt and gT) respectively.  This mapping has been added because it gets
+        annoying to have to type two keys to for every tab when you are moving
+        between more than 2 tabs)
+
+*alt_h* *alt_l*
+
+        equivalent to tabm -1 and tabm +1 respectively, but it also adds
+        wrapping capability.
+
+====================================================================
+4. License                                 *TabcityLicense*
+
+        see license.txt in the root directory
+
+ vim:tw=78:ts=8:ft=help:norl:
