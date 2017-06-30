@@ -2,11 +2,7 @@
 nnoremap <c-l> gt
 nnoremap <c-h> gT
 
-"ex commands
-" open multiple tabs at once using :Tabnew (or :T)
-" from http://vim.wikia.com/wiki/Load_multiple_files_with_a_single_command
-com! -complete=file -nargs=* T silent! exec "!vim --servername " . v:servername . " --remote-tab-silent <args>"
-com! -complete=file -nargs=* Tabnew silent! exec "!vim --servername " . v:servername . " --remote-tab-silent <args>"
+nnoremap <leader>t :tabnew 
 
 "tag follows to new tab (and returns)
 nnoremap <C-]> :call tags#Open_tag_in_new_tab()<cr>
