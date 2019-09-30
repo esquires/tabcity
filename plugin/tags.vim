@@ -37,7 +37,7 @@ function! tags#Open_tag_in_new_tab()
         "tag jump
         execute "tag " . w
 
-    elseif tags#Look_for_matching_tab(tag_fname)
+    elseif tags#Look_for_matching_tab(tag_fname, 1)
 
         "if there is already a matching tab open, then go to the appropriate line
         execute "normal! gg" . line_num . "G"
